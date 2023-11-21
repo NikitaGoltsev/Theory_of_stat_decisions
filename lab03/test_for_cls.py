@@ -1,6 +1,6 @@
 import unittest
 from classes_for_df_preparation import common_data, gender_parce
-
+from typing import NoReturn
 import pandas as pd
 
 
@@ -16,7 +16,7 @@ class full_test(unittest.TestCase):
        return None
     '''
 
-    def test_par(self):
+    def test_par(self) -> NoReturn:
         df = pd.DataFrame(['Male'])
         df.columns = ['Gender']
 
