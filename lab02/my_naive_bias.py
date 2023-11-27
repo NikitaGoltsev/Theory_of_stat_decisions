@@ -51,9 +51,12 @@ class Naive_Bayes:
             for class_label in self.classes:
                 # Получение априорной вероятности класса
                 class_probability = self.class_probabilities[class_label]
-                # Вычисление плотностей вероятности для признаков и их произведение
-                likelihoods = np.array([self.calculate_likelihood(sample[i], mean, variance)
-                                        for i, (mean, variance) in enumerate(self.mean_variances[class_label])])
+                # Вычисление плотностей вероятности для признаков
+                likelihoods = np.array([self.calculate_likelihood(sample[i],
+                                                                  mean,
+                                                                  variance)
+                                        for i, (mean, variance) in enumerate(
+                                            self.mean_variances[class_label])])
                 # Вычисление апостериорной вероятности для класса
                 posterior = class_probability * np.prod(likelihoods)
                 class_scores[class_label] = posterior
