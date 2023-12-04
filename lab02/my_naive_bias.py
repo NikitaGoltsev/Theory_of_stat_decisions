@@ -19,7 +19,8 @@ class Naive_Bayes:
             # Выбор обучающих примеров для данного класса
             class_samples = X[y == class_label]
             # Вычисление априорной вероятности класса
-            self.class_probabilities[class_label] = len(class_samples) / total_samples
+            self.class_probabilities[class_label] = len(
+                class_samples) / total_samples
             # Список для хранения средних значений и дисперсий признаков
             self.mean_variances[class_label] = []
             for feature_index in range(X.shape[1]):
